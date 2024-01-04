@@ -1,45 +1,27 @@
-//
-//  main.swift
-//  ATCorderTest
-//
-//  Created by 滝野翔平 on 2023/12/05.
-//
-
 import Foundation
+
+/*
+ input
+ 3
+ Takahashi
+ Aoki
+ Snuke
+ */
+func aaa() {
+  let N = readInt()
+  var answerList: [String] = []
+  for _ in 0..<N {
+    answerList.append(readLine()!)
+  }
+    // 配列内の要素を全て逆順にする
+  answerList.reverse()
+  answerList.forEach { print($0) }
+}
+
+aaa()
+
+// テンプレート
 
 func readInt() -> Int {
     return Int(readLine()!)!
 }
-
-
-func readStrings() -> [String] {
-    return readLine()!.split(separator: "").map { String($0) }
-}
-
-func aa() {
-    let N = readInt()
-    let S = readStrings()
-    var abc = "ABC"
-
-    for i in 0..<N {
-        print(S[i])
-        if S[i] == "A" {
-            abc = abc.filter { $0 == "A" }
-            if S[i + 1] == "B" {
-                abc = abc.filter { $0 == "B" }
-                if S[i + 2] == "C" {
-                    abc = abc.filter { $0 == "C" }
-                    print(i)
-                    return
-                }
-                abc = "ABC"
-                break
-            }
-            abc = "ABC"
-            break
-        }
-    }
-    print(-1)
-}
-
-aa()
