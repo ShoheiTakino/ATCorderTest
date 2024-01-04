@@ -1,19 +1,37 @@
 import Foundation
-/*
- input
- 4 3
- */
-func bbb() {
-  let (A, B) = readTwoInts()
-    let answer: Double =  pow(Double(A), Double(B))
-  print(Int(answer))
+
+func aaa() {
+//    let K = readInt()
+//    var answerList: [String] =  []
+//    for i in 1...K {
+//        answerList.append(alphabetForNumber(i))
+//    }
+//    print(answerList.joined())
+    let K = readInt()
+    let answerList = (1...K).map { alphabetForNumber($0) }
+    print(answerList.joined())
 }
 
-bbb()
+aaa()
 
 // テンプレート
 
-func readTwoInts() -> (a: Int, b: Int) {
-    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
-    return (a: ints[0], b: ints[1])
+func readInt() -> Int {
+    return Int(readLine()!)!
 }
+
+func alphabetForNumber(_ number: Int) -> String {
+    guard (1...26).contains(number) else {
+        return ""
+    }
+
+    let unicodeValue = UnicodeScalar("A").value + UInt32(number) - 1
+    return String(UnicodeScalar(unicodeValue)!)
+}
+
+// 標準入力
+
+/*
+ input
+ 3
+ */
