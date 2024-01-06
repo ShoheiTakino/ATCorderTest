@@ -1,52 +1,39 @@
 import Foundation
 
 func aaa() {
-    let (N, Q) = readTwoInts()
-    // player管理用の[event,x]を生成する2次元の文字列配列を生成する
-    var player: [[Int]] = []
-    for i in 1...N {
-        player.append([0,i])
+    let N = readInt()
+    // 前からN番目と後ろからN番目を加工しやすくするための[Int]を昇順にソートした[Int]を用意
+    var intList = readInts().sorted()
+    // 指定された前後N番目の要素をremoveするための関数
+    for _ in 0..<N {
+        intList = intList.dropLast()
+        intList.remove(at: 0)
     }
-
-    for _ in 0..<Q {
-        let (event, x) = readTwoInts() // eventがカード等、xが人
-        if event == 3 {
-            // xの現在の累積カードの状況を確認して、2以上であればYesをそれ以外はNoを出力する
-            let card = player.filter { $0[1] == x }.map { $0[0] }.compactMap { Int($0) }.first
-            print(card! > 1 ? "Yes" : "No")
-        } else {
-            for i in 0..<player.count {
-                // xが同じ配列に対して、eventで与えられたカードを累積していく
-                if player[i][1] == x {
-                    player[i][0] += event
-                }
-            }
-        }
-    }
+    // intListを全て合計したIntを算出
+    let sum = intList.reduce(0, +)
+    // 算出したsumを小数表記にするためにDoubleにキャストする
+    let average = Double(sum) / Double(intList.count)
+    // 出力時に小数第10位まで強制的に出力する
+    let formattedAverage = String(format: "%.10f", average)
+    print(formattedAverage)
 }
 
 aaa()
 
 // テンプレート
 
-func readTwoInts() -> (a: Int, b: Int) {
-    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
-    return (a: ints[0], b: ints[1])
+func readInt() -> Int {
+    return Int(readLine()!)!
 }
 
+func readInts() -> [Int] {
+    return readLine()!.split(separator: " ").map { Int(String($0))! }
+}
 
 // 標準入力
 
 /*
- input
- 3 9
- 3 1
- 3 2
- 1 2
- 2 1
- 3 1
- 3 2
- 1 2
- 3 2
- 3 3
+ input 頭のスペースに注意
+1
+10 100 20 50 30
  */
