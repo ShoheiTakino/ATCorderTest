@@ -2,8 +2,12 @@ import Foundation
 
 func aaa() {
     let S = readLine()!
-    let T = readLine()!
-    print(S.contains(T) ? "Yes" : "No")
+    var answer = -1
+    for i in 0..<Array(S).count {
+        if Array(S)[i] != "a" { continue }
+        answer = i + 1
+    }
+    print(answer)
 }
 
 aaa()
@@ -13,6 +17,5 @@ aaa()
 
 /*
  input 頭のスペースに注意
-voltage
-tag
+abcdaxayz
  */
