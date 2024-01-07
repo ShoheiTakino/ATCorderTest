@@ -1,46 +1,32 @@
 import Foundation
 
-//  R, L, U, D のいずれかであり、それぞれ x 軸正方向、x 軸負方向、y 軸正方向、y 軸負方向
-//
-//func aaa() {
-//    let S = readLine()!
-//    var answer = 0
-//    for item in Array(S) {
-//        if item == "v" {
-//            answer += 1
-//        } else if item == "w" {
-//            answer += 2
-//        }
-//    }
-//    print(answer)
-//}
-//
-//aaa()
-
-func countVsAndWs(in input: String) -> Int {
-    return input.reduce(0) { result, char in
-        switch char {
-        case "v":
-            return result + 1
-        case "w":
-            return result + 2
-        default:
-            return result
-        }
+func aaa() {
+    let (_, K) = readTwoInts()
+    var intList = readInts()
+    for _ in 0..<K {
+        intList.remove(at: 0)
+        intList.append(0)
     }
+    intList.forEach { print($0, terminator: " ") }
 }
 
-// 使用例
-let inputString = readLine()!
-let answer = countVsAndWs(in: inputString)
-print(answer)
+aaa()
 
 // テンプレ
 
+func readTwoInts() -> (a: Int, b: Int) {
+    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
+    return (a: ints[0], b: ints[1])
+}
+
+func readInts() -> [Int] {
+    return readLine()!.split(separator: " ").map { Int(String($0))! }
+}
 
 // 標準入力
 
 /*
  input 頭のスペースに注意
-vvwvw
+3 2
+2 7 8
  */
