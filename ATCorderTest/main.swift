@@ -1,13 +1,8 @@
 import Foundation
 
 func aaa() {
-    let (_, K) = readTwoInts()
-    var intList = readInts()
-    for _ in 0..<K {
-        intList.remove(at: 0)
-        intList.append(0)
-    }
-    intList.forEach { print($0, terminator: " ") }
+    let (_, X) = readTwoInts()
+    print(readInts().firstIndex(of: X)! + 1)
 }
 
 aaa()
@@ -27,6 +22,6 @@ func readInts() -> [Int] {
 
 /*
  input 頭のスペースに注意
-3 2
-2 7 8
+4 3
+2 3 1 4
  */
