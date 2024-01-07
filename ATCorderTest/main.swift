@@ -1,21 +1,28 @@
 import Foundation
 
 func aaa() {
-    let S = readLine()!
-    var answer = -1
-    for i in 0..<Array(S).count {
-        if Array(S)[i] != "a" { continue }
-        answer = i + 1
-    }
-    print(answer)
+    let _ = readInt()
+    let intList = readInts()
+    let max = intList.max()!
+    print(intList.firstIndex(of: max)! + 1)
 }
 
 aaa()
 
 
-// 標準入力
+// テンプレ
+
+func readInt() -> Int {
+    return Int(readLine()!)!
+}
+
+func readInts() -> [Int] {
+    return readLine()!.split(separator: " ").map { Int(String($0))! }
+}
+
 
 /*
  input 頭のスペースに注意
-abcdaxayz
+ 3
+ 50 80 70
  */
