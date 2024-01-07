@@ -1,10 +1,10 @@
 import Foundation
 
 func aaa() {
-    let _ = readInt()
-    let intList = readInts()
-    let max = intList.max()!
-    print(intList.firstIndex(of: max)! + 1)
+    let (A, B) = readTwoInts()
+    let wari =  Double(B) / Double(A)
+    let answer = (wari * 10000).rounded() / 10000
+    print(String(format: "%.3f", answer))
 }
 
 aaa()
@@ -12,17 +12,13 @@ aaa()
 
 // テンプレ
 
-func readInt() -> Int {
-    return Int(readLine()!)!
-}
-
-func readInts() -> [Int] {
-    return readLine()!.split(separator: " ").map { Int(String($0))! }
+func readTwoInts() -> (a: Int, b: Int) {
+    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
+    return (a: ints[0], b: ints[1])
 }
 
 
 /*
  input 頭のスペースに注意
- 3
- 50 80 70
+7 4
  */
