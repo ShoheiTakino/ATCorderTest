@@ -1,44 +1,46 @@
 import Foundation
 
-func aaa() {
-    let N = readInt()
-    for _ in 0..<N {
-        let a = readInt()
-        // i番目が1だと、readInts()を使用して、数字を入力できないため、処理を分ける
-        if a > 1 {
-            // [Int]内に存在している要素を奇数のみにして、その要素数を出力する処理
-            print(readInts().filter { !$0.isMultiple(of: 2) }.count)
-        } else {
-            // Intが奇数ならば、1を偶数であれば0を出力する処理
-            print(readInt().isMultiple(of: 2) ? 0 : 1)
+//  R, L, U, D のいずれかであり、それぞれ x 軸正方向、x 軸負方向、y 軸正方向、y 軸負方向
+//
+//func aaa() {
+//    let S = readLine()!
+//    var answer = 0
+//    for item in Array(S) {
+//        if item == "v" {
+//            answer += 1
+//        } else if item == "w" {
+//            answer += 2
+//        }
+//    }
+//    print(answer)
+//}
+//
+//aaa()
+
+func countVsAndWs(in input: String) -> Int {
+    return input.reduce(0) { result, char in
+        switch char {
+        case "v":
+            return result + 1
+        case "w":
+            return result + 2
+        default:
+            return result
         }
     }
 }
 
-aaa()
+// 使用例
+let inputString = readLine()!
+let answer = countVsAndWs(in: inputString)
+print(answer)
 
-// テンプレート
-
-func readInt() -> Int {
-    return Int(readLine()!)!
-}
-
-func readInts() -> [Int] {
-    return readLine()!.split(separator: " ").map { Int(String($0))! }
-}
+// テンプレ
 
 
 // 標準入力
 
 /*
  input 頭のスペースに注意
-4
-3
-1 2 3
-2
-20 23
-10
-6 10 4 1 5 9 8 6 5 1
-1
-1000000000
+vvwvw
  */
