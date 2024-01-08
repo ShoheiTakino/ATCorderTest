@@ -1,8 +1,8 @@
 import Foundation
 
 func aaa() {
-    let _ = readInt()
-    print(readInts().reduce(0, +))
+    let answer = String(format: "%X", (readInt()))
+    print(answer.count == 2 ? answer : "0" + answer)
 }
 
 aaa()
@@ -14,13 +14,8 @@ func readInt() -> Int {
     return Int(readLine()!)!
 }
 
-func readInts() -> [Int] {
-    return readLine()!.split(separator: " ").map { Int(String($0))! }
-}
 
 /*
  input 頭のスペースに注意
-3
-2 7 2
-
+99
  */
