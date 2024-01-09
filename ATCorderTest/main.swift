@@ -1,18 +1,21 @@
 import Foundation
 
 func aaa() {
-    print(Array(Set(readInts())).count)
+    let S = readLine()!
+    var calendar = Calendar(identifier: .gregorian)
+    calendar.locale = Locale(identifier: "en_US")
+    let weekdayList = calendar.weekdaySymbols
+    let sIndex = weekdayList.firstIndex(of: S)!
+    let saturdayIndex = weekdayList.firstIndex(of: "Saturday")!
+    print(saturdayIndex - sIndex)
 }
 
 aaa()
 
 // テンプレ
 
-func readInts() -> [Int] {
-    return readLine()!.split(separator: " ").map { Int(String($0))! }
-}
 
 /*
  input 頭のスペースに注意
-31 9 24 31 24
+ Wednesday
  */
