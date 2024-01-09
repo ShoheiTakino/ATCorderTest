@@ -1,21 +1,31 @@
 import Foundation
 
 func aaa() {
-    let S = readLine()!
-    var calendar = Calendar(identifier: .gregorian)
-    calendar.locale = Locale(identifier: "en_US")
-    let weekdayList = calendar.weekdaySymbols
-    let sIndex = weekdayList.firstIndex(of: S)!
-    let saturdayIndex = weekdayList.firstIndex(of: "Saturday")!
-    print(saturdayIndex - sIndex)
+    var N = readInt()
+
+    while !is326Like(N) {
+        N += 1
+    }
+    print(N)
+}
+
+func is326Like(_ int: Int) -> Bool {
+    let a = int / 100
+    let b = int / 10 % 10
+    let c = int % 10
+    print(a, b, c)
+    return a * b == c
 }
 
 aaa()
 
 // テンプレ
 
+func readInt() -> Int {
+    return Int(readLine()!)!
+}
 
 /*
  input 頭のスペースに注意
- Wednesday
+326
  */
