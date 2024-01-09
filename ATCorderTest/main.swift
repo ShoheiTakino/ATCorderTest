@@ -1,31 +1,20 @@
 import Foundation
 
 func aaa() {
-    var N = readInt()
-
-    while !is326Like(N) {
-        N += 1
-    }
-    print(N)
-}
-
-func is326Like(_ int: Int) -> Bool {
-    let a = int / 100
-    let b = int / 10 % 10
-    let c = int % 10
-    print(a, b, c)
-    return a * b == c
+    let list = ["AB":1,"BC":1,"CD":1,"DE":1,"AE":1,"AC":2,"AD":2,"BD":2,"BE":2,"CE":2]
+    let Ss = list[String(readLine()!.sorted())]
+    let Tt = list[String(readLine()!.sorted())]
+    print(Ss == Tt ? "Yes" : "No")
 }
 
 aaa()
 
 // テンプレ
 
-func readInt() -> Int {
-    return Int(readLine()!)!
-}
+
 
 /*
  input 頭のスペースに注意
-326
+AC
+EC
  */
