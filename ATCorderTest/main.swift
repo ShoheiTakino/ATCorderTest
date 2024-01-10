@@ -1,44 +1,46 @@
 import Foundation
 
 func aaa() {
-
-    let n = Int(readLine()!)!
-    let m = 100
-    var s = Array(repeating: Array(repeating: 0, count: m), count: m)
-
-    for _ in 0..<n {
-        let input = readLine()!.split(separator: " ").map { Int($0)! }
-        let a = input[0], b = input[1], c = input[2], d = input[3]
-
-        for i in a..<b {
-            for j in c..<d {
-                s[i][j] += 1
+    let (N, M) = readTwoInts()
+    var cList = readStringListWithSpace()
+    var dList = readStringListWithSpace()
+    var pList = readInts()
+    var answer = 0
+    for i in 0..<N {
+        var price = pList[0]
+        for j in 1...M {
+            if cList[i] == dList[j - 1] {
+                price = pList[j]
             }
         }
+        answer += price
     }
-
-    var ans = 0
-    for i in 0..<m {
-        for j in 0..<m {
-            if s[i][j] >= 1 {
-                ans += 1
-            }
-        }
-    }
-
-    print(ans)
+    print(answer)
 }
 
 aaa()
 
 // テンプレ
 
+func readTwoInts() -> (a: Int, b: Int) {
+    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
+    return (a: ints[0], b: ints[1])
+}
+
+func readInts() -> [Int] {
+    return readLine()!.split(separator: " ").map { Int(String($0))! }
+}
+
+func readStringListWithSpace() -> [String] {
+    return readLine()!.split(separator: " ").map { String($0) }
+}
+
 
 
 /*
  input 頭のスペースに注意
-3
-0 5 1 3
-1 4 0 5
-2 5 2 4
+3 2
+red green blue
+blue red
+800 1600 2800
  */
