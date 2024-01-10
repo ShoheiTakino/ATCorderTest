@@ -1,10 +1,24 @@
 import Foundation
 
 func aaa() {
-    print(readLine()!.dropLast() + "4")
+    let N = readInt()
+    for i in 0...N {
+        for j in 0...N {
+            for k in 0...N {
+                if i + j + k > N { continue }
+                print(i, j, k)
+            }
+        }
+    }
 }
 
 aaa()
+
+// テンプレ
+func readInt() -> Int {
+    return Int(readLine()!)!
+}
+
 
 /*
  input 頭のスペースに注意
