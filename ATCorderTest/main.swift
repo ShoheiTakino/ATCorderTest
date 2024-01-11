@@ -1,14 +1,16 @@
 import Foundation
 
 func aaa() {
-    let intList = readInts().sorted()
-    let int = Array(Set(intList))
-    if int.count != 2 {
-        print("No")
-        return
+    let Y = readInt()
+    if Y % 4 == 2 {
+        print(Y)
+    } else if Y % 4 == 1 {
+        print(Y + 1)
+    } else if Y % 4 == 0 {
+        print(Y + 2)
+    } else if Y % 4 == 3 {
+        print(Y + 3)
     }
-    let isMatch = intList.filter { $0 == int[0] }
-    print(isMatch.count == 2 || isMatch.count == 3 ? "Yes" : "No")
 }
 
 
@@ -16,12 +18,12 @@ aaa()
 
 // テンプレ
 
-func readInts() -> [Int] {
-    return readLine()!.split(separator: " ").map { Int(String($0))! }
+func readInt() -> Int {
+    return Int(readLine()!)!
 }
 
 
 /*
  input 頭のスペースに注意
- 1 2 1 2 1
+
  */
