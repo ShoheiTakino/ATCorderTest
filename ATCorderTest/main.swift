@@ -1,36 +1,41 @@
 import Foundation
 
-func aaa() {
-    var list = readInts()
+func generatePascalTriangle(_ N: Int) -> [[Int]] {
+    var triangle = [[Int]]()
 
-    // 1歳の時は、
-    if list[1] == 0 {
-        let diff = list[2] - list[1]
-        let diffInt = diff * list[4]
-        print(list[3] - diffInt)
-        return
+    for i in 0..<N {
+        var row = [Int](repeating: 0, count: i + 1)
+
+        for j in 0...i {
+            if j == 0 || j == i {
+                row[j] = 1
+            } else {
+                row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
+            }
+        }
+
+        triangle.append(row)
     }
-    
-    if list[2] < list[1] && list[1] < list[0] {
-        print(list[3])
-        return
-    }
 
-    let diff = list[2] - list[1]
-    let diffInt = diff * list[4]
-
-    print(list[3] - diffInt)
+    return triangle
 }
 
-aaa()
+func printPascalTriangle(_ triangle: [[Int]]) {
+    for row in triangle {
+        print(row.map { String($0) }.joined(separator: " "))
+    }
+}
+
+let pascalTriangle = generatePascalTriangle(readInt())
+printPascalTriangle(pascalTriangle)
 
 // テンプレ
 
-func readInts() -> [Int] {
-    return readLine()!.split(separator: " ").map { Int(String($0))! }
+func readInt() -> Int {
+    return Int(readLine()!)!
 }
 
 /*
  input 頭のスペースに注意
-38 20 17 168 3
+3
  */
