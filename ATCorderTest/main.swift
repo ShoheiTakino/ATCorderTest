@@ -1,26 +1,36 @@
 import Foundation
 
 func aaa() {
-    let SList = readStrings().sorted()
-    if SList[0] != SList[1] {
-        print(SList[0])
+    var list = readInts()
+
+    // 1歳の時は、
+    if list[1] == 0 {
+        let diff = list[2] - list[1]
+        let diffInt = diff * list[4]
+        print(list[3] - diffInt)
         return
-    } else if SList[2] != SList[1] {
-        print(SList[2])
-        return
-    } else {
-        print(-1)
     }
+    
+    if list[2] < list[1] && list[1] < list[0] {
+        print(list[3])
+        return
+    }
+
+    let diff = list[2] - list[1]
+    let diffInt = diff * list[4]
+
+    print(list[3] - diffInt)
 }
 
 aaa()
 
 // テンプレ
-func readStrings() -> [String] {
-    return readLine()!.split(separator: "").map { String($0) }
+
+func readInts() -> [Int] {
+    return readLine()!.split(separator: " ").map { Int(String($0))! }
 }
 
 /*
  input 頭のスペースに注意
-pop
+38 20 17 168 3
  */
