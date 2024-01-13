@@ -1,18 +1,19 @@
 import Foundation
 
-func aaa(_ s: String) {
-    if s[s.index(s.startIndex, offsetBy: 0)] != s[s.index(s.startIndex, offsetBy: 1)] && s[s.index(s.startIndex, offsetBy: 0)] != s[s.index(s.startIndex, offsetBy: 2)] {
-        print(String(s[s.index(s.startIndex, offsetBy: 0)]))
-    } else if s[s.index(s.startIndex, offsetBy: 1)] != s[s.index(s.startIndex, offsetBy: 0)] && s[s.index(s.startIndex, offsetBy: 1)] != s[s.index(s.startIndex, offsetBy: 2)] {
-        print(String(s[s.index(s.startIndex, offsetBy: 1)]))
-    } else if s[s.index(s.startIndex, offsetBy: 2)] != s[s.index(s.startIndex, offsetBy: 0)] && s[s.index(s.startIndex, offsetBy: 2)] != s[s.index(s.startIndex, offsetBy: 1)] {
-        print(String(s[s.index(s.startIndex, offsetBy: 2)]))
+func aaa() {
+    let SList = readStrings().sorted()
+    if SList[0] != SList[1] {
+        print(SList[0])
+        return
+    } else if SList[2] != SList[1] {
+        print(SList[2])
+        return
     } else {
-        print("-1")
+        print(-1)
     }
 }
 
-aaa(readLine()!)
+aaa()
 
 // テンプレ
 func readStrings() -> [String] {
