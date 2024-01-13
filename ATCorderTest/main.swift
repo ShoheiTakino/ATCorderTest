@@ -1,25 +1,25 @@
 import Foundation
 
-func aaa() {
-    let inputArray = readLine()!.split(separator: " ").map { Int($0)! }
-    let l1 = inputArray[0]
-    let r1 = inputArray[1]
-    let l2 = inputArray[2]
-    let r2 = inputArray[3]
-    print(max(0, min(r1, r2) - max(l1, l2))) // これでも良い
+func aaa(_ s: String) {
+    if s[s.index(s.startIndex, offsetBy: 0)] != s[s.index(s.startIndex, offsetBy: 1)] && s[s.index(s.startIndex, offsetBy: 0)] != s[s.index(s.startIndex, offsetBy: 2)] {
+        print(String(s[s.index(s.startIndex, offsetBy: 0)]))
+    } else if s[s.index(s.startIndex, offsetBy: 1)] != s[s.index(s.startIndex, offsetBy: 0)] && s[s.index(s.startIndex, offsetBy: 1)] != s[s.index(s.startIndex, offsetBy: 2)] {
+        print(String(s[s.index(s.startIndex, offsetBy: 1)]))
+    } else if s[s.index(s.startIndex, offsetBy: 2)] != s[s.index(s.startIndex, offsetBy: 0)] && s[s.index(s.startIndex, offsetBy: 2)] != s[s.index(s.startIndex, offsetBy: 1)] {
+        print(String(s[s.index(s.startIndex, offsetBy: 2)]))
+    } else {
+        print("-1")
+    }
 }
 
-
-aaa()
+aaa(readLine()!)
 
 // テンプレ
-
-func readInts() -> [Int] {
-    return readLine()!.split(separator: " ").map { Int(String($0))! }
+func readStrings() -> [String] {
+    return readLine()!.split(separator: "").map { String($0) }
 }
-
 
 /*
  input 頭のスペースに注意
- 0 3 1 5
+pop
  */
