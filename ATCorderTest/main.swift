@@ -1,35 +1,18 @@
 import Foundation
 
-func generatePascalTriangle(_ N: Int) -> [[Int]] {
-    var triangle = [[Int]]()
-
-    for i in 0..<N {
-        var row = [Int](repeating: 0, count: i + 1)
-
-        for j in 0...i {
-            if j == 0 || j == i {
-                row[j] = 1
-            } else {
-                row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
-            }
-        }
-
-        triangle.append(row)
+func aaa()  {
+    var K = readInt()
+    if K >= 60 {
+        K -= 60
+        let aa = K > 10 ? "\(K)" : "0\(K)"
+        print("22:\(aa)")
+        return
     }
-
-    return triangle
+    let aa = K > 10 ? "\(K)" : "0\(K)"
+    print("21:\(aa)")
 }
 
-func printPascalTriangle(_ triangle: [[Int]]) {
-    for row in triangle {
-        print(row.map { String($0) }.joined(separator: " "))
-    }
-}
-
-let pascalTriangle = generatePascalTriangle(readInt())
-printPascalTriangle(pascalTriangle)
-
-// テンプレ
+aaa()
 
 func readInt() -> Int {
     return Int(readLine()!)!
