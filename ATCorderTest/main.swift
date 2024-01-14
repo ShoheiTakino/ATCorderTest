@@ -1,35 +1,24 @@
 import Foundation
 
 func aaa()  {
-    var S = readStrings()
-    var isUppercase = false
-    var isDownecase = false
-    let isConflicted = Set(S).count == S.count
-
-    if !isConflicted {
-        print("No")
-        return
+    var (A, B, K) = readThreeInts()
+    var count = 0
+    while B > A {
+        count += 1
+        A = A * K
     }
-
-    for i in 0..<S.count {
-        if Character(S[i]).isUppercase {
-            isUppercase = true
-        } else {
-            isDownecase = true
-        }
-    }
-
-    print(isDownecase == isUppercase ? "Yes" : "No")
+    print(count)
 }
 
 aaa()
 
-func readStrings() -> [String] {
-    return readLine()!.split(separator: "").map { String($0) }
+func readThreeInts() -> (a: Int, b: Int, c: Int) {
+    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
+    return (a: ints[0], b: ints[1], c: ints[2])
 }
 
 /*
  input 頭のスペースに注意
-AtCoder
+1 4 2
  */
 
