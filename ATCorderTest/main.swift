@@ -2,8 +2,17 @@ import Foundation
 
 func aaa()  {
     let N = readInt()
-    let o = (0..<N).map { _ in "o" }.joined()
-    print("L\(o)ng")
+    let binaryString = String(N, radix: 2)
+    let list = binaryString.split(separator: "").map { Int(String($0))! }.reversed()
+    var count = 0
+    for item in list {
+        if item == 0 {
+            count += 1
+        } else if item != 0 {
+            break
+        }
+    }
+    print(count)
 }
 
 aaa()
