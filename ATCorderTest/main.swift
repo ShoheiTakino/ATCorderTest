@@ -1,24 +1,33 @@
 import Foundation
 
 func aaa()  {
-    var (A, B, K) = readThreeInts()
-    var count = 0
-    while B > A {
-        count += 1
-        A = A * K
+    let _ = readInt()
+    let list = Set(readInts()).sorted()
+    for i in 0..<list.count {
+        if !list.contains(i) {
+            print(i)
+            return
+        }
     }
-    print(count)
+
+    print(list.last! + 1)
 }
 
 aaa()
 
-func readThreeInts() -> (a: Int, b: Int, c: Int) {
-    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
-    return (a: ints[0], b: ints[1], c: ints[2])
+func readInt() -> Int {
+    return Int(readLine()!)!
 }
+
+
+func readInts() -> [Int] {
+    return readLine()!.split(separator: " ").map { Int(String($0))! }
+}
+
 
 /*
  input 頭のスペースに注意
-1 4 2
+8
+0 3 2 6 2 1 0 0
  */
 
