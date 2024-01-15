@@ -1,27 +1,26 @@
 import Foundation
 
 func aaa() {
-    if let x = Int(readLine()!) {
-        var ans: Int
-        if x >= 0 {
-            ans = x / 10
-        } else {
-            ans = -((-x + 9) / 10)
+    if let b = Int(readLine()!) {
+        for a in 1...15 {
+            var x = 1
+            for _ in 0..<a {
+                x *= a
+            }
+            if x == b {
+                print(a)
+                return
+            }
         }
-        print(ans)
+        print(-1)
     }
 }
 
 aaa()
 
 
-
-func readInt() -> Int {
-    return Int(readLine()!)!
-}
-
 /*
  input 頭のスペースに注意
- 47
+27
  */
 
