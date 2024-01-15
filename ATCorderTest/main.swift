@@ -1,24 +1,16 @@
 import Foundation
 
 func aaa()  {
-    var n = Int(readLine()!)!
-     n -= 1
-     if n == 0 {
-         print(0)
-         return
-     }
+    var _ = Int(readLine()!)!
+    print(Set(readInts()).count)
 
-     var s = ""
-     while n != 0 {
-         s += String(n % 5 * 2)
-         n /= 5
-     }
-
-     let reversedString = String(s.reversed())
-     print(reversedString)
 }
 
 aaa()
+
+func readInts() -> [Int] {
+    return readLine()!.split(separator: " ").map { Int(String($0))! }
+}
 
 func readInt() -> Int {
     return Int(readLine()!)!
@@ -26,7 +18,7 @@ func readInt() -> Int {
 
 /*
  input 頭のスペースに注意
-5
-2 2 3 1 1
+6
+1 4 1 2 2 1
  */
 
