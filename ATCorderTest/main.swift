@@ -1,16 +1,20 @@
 import Foundation
 
-func aaa()  {
-    var _ = Int(readLine()!)!
-    print(Set(readInts()).count)
-
+func aaa() {
+    if let x = Int(readLine()!) {
+        var ans: Int
+        if x >= 0 {
+            ans = x / 10
+        } else {
+            ans = -((-x + 9) / 10)
+        }
+        print(ans)
+    }
 }
 
 aaa()
 
-func readInts() -> [Int] {
-    return readLine()!.split(separator: " ").map { Int(String($0))! }
-}
+
 
 func readInt() -> Int {
     return Int(readLine()!)!
@@ -18,7 +22,6 @@ func readInt() -> Int {
 
 /*
  input 頭のスペースに注意
-6
-1 4 1 2 2 1
+ 47
  */
 
