@@ -1,17 +1,18 @@
 import Foundation
 
 func aaa() {
-    let (R, C) = readTwoInts()
-    let listA = readInts()
-    let listB = readInts()
-    if R == 1 && C == 1 {
-        print(listA[0])
-    } else if R == 1 && C == 2 {
-        print(listA[1])
-    } else if R == 2 && C == 1 {
-        print(listB[0])
-    } else {
-        print(listB[1])
+    let (H, W) = readTwoInts()
+    let intList = (0..<H).map { _ in readInts() }
+    var answerList : [[Int]] = []
+    for i in 0..<W {
+        var iList: [Int] = []
+        for j in 0..<H {
+            iList.append(intList[j][i])
+        }
+        answerList.append(iList)
+    }
+    for list in answerList {
+        print(list.map { String($0) }.joined(separator: " "))
     }
 }
 
@@ -29,8 +30,10 @@ func readInts() -> [Int] {
 
 /*
  input 頭のスペースに注意
-1 2
-1 0
-0 1
+4 3
+1 2 3
+4 5 6
+7 8 9
+10 11 12
  */
 
