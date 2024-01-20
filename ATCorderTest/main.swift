@@ -1,18 +1,16 @@
 import Foundation
 
 func aaa() {
-    var intList = readInts()
-    let median = intList[1]
-    if intList.count != Set(intList).count {
-        print("Yes")
-        return
-    }
-    intList.sort()
-    let medianIndex = intList.firstIndex(of: median)
-    print(medianIndex == 1 ? "Yes" : "No")
+    print(alphabetForNumber(readInt()))
 }
 
 aaa()
+
+func alphabetForNumber(_ number: Int) -> String {
+    guard (97...122).contains(number) else { return "-" }
+    let unicodeValue = UnicodeScalar("a").value + UInt32(number) - 97
+    return String(UnicodeScalar(unicodeValue)!)
+}
 
 
 func readInt() -> Int {
@@ -37,6 +35,6 @@ func readInts() -> [Int] {
 
 /*
  input 頭のスペースに注意
-5 3 2
+97
  */
 
