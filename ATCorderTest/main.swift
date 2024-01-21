@@ -1,17 +1,14 @@
 import Foundation
 
 func aaa() {
-    let S = readLine()!
-    let stringArray = Array(S)
-    for i in 1..<stringArray.count {
-        let str = stringArray[i - 1]
-        let iStr = stringArray[i]
-        let unicode = UnicodeScalar(String(stringArray[i]))!.value
-        if str <= iStr { continue }
-        print("No")
-        return
+    var S = Array(readLine()!)
+    let diff = 6 - S.count
+
+    for i in 0..<diff {
+        S.append(S[i])
     }
-    print("Yes")
+
+    print(S.map { String($0) }.joined(separator: ""))
 }
 
 aaa()
@@ -22,6 +19,6 @@ func readInt() -> Int {
 
 /*
  input 頭のスペースに注意
-97
+abc
  */
 
