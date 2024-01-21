@@ -1,36 +1,37 @@
 import Foundation
 
 func aaa() {
-    print(alphabetForNumber(readInt()))
+    let N = readInt()
+    var aoki = 0
+    var takahashi = 0
+    for _ in 0..<N {
+        let iScore = readInts()
+        takahashi += iScore[0]
+        aoki += iScore[1]
+    }
+
+    if takahashi == aoki {
+        print("Draw")
+        return
+    } else if takahashi > aoki {
+        print("Takahashi")
+        return
+    } else if takahashi < aoki {
+        print("Aoki")
+        return
+    }
 }
 
 aaa()
-
-func alphabetForNumber(_ number: Int) -> String {
-    guard (97...122).contains(number) else { return "-" }
-    let unicodeValue = UnicodeScalar("a").value + UInt32(number) - 97
-    return String(UnicodeScalar(unicodeValue)!)
-}
-
 
 func readInt() -> Int {
     return Int(readLine()!)!
 }
 
-func readThreeInts() -> (a: Int, b: Int, c: Int) {
-    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
-    return (a: ints[0], b: ints[1], c: ints[2])
-}
-
-
-func readTwoInts() -> (a: Int, b: Int) {
-    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
-    return (a: ints[0], b: ints[1])
-}
-
 func readInts() -> [Int] {
     return readLine()!.split(separator: " ").map { Int(String($0))! }
 }
+
 
 
 /*
