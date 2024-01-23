@@ -1,13 +1,7 @@
 import Foundation
 
 func aaa() {
-    let S = readInts().sorted()
-    for i in 0..<9 {
-        if S[i] == i { continue }
-        print(i)
-        return
-    }
-    print(9)
+    print("0" + readInts().dropLast().map { String($0) }.joined(separator: ""))
 }
 
 aaa()
@@ -18,6 +12,6 @@ func readInts() -> [Int] {
 
 /*
  input 頭のスペースに注意
-012345678
+1011
  */
 
