@@ -1,26 +1,23 @@
 import Foundation
 
 func aaa() {
-    let (H, W) = readTwoInts()
-    let (R, C) = readTwoInts()
-    var answer = 0
-    if C != 1 { answer += 1 }
-    if C != W { answer += 1 }
-    if R != 1 { answer += 1 }
-    if R != H { answer += 1 }
-    print(answer)
+    let S = readInts().sorted()
+    for i in 0..<9 {
+        if S[i] == i { continue }
+        print(i)
+        return
+    }
+    print(9)
 }
 
 aaa()
 
-func readTwoInts() -> (a: Int, b: Int) {
-    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
-    return (a: ints[0], b: ints[1])
+func readInts() -> [Int] {
+    return readLine()!.split(separator: "").map { Int(String($0))! }
 }
 
 /*
  input 頭のスペースに注意
-3 4
-1 3
+012345678
  */
 
