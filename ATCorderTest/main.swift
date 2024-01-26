@@ -1,30 +1,34 @@
 import Foundation
 
 func aaa() {
-    let intList = readInts()
+    let (H, W) = readTwoInts()
+    let listInList = (0..<H).map { _ in readStrings() }
+    var firstIndex: [Int] = []
+    var secondIndex: [Int] = []
 
-    if intList[0] == intList[2] && intList[1] == intList[3] {
-        print("Takahashi")
-        return
-    }
+    for i in 0..<H {
+        let iList = listInList[i]
+        for _ in 0..<W {
+            if let index = iList.lastIndex(of: "o") {
+                if firstIndex.isEmpty {
+                    firstIndex = [i, index]
 
-    if intList[0] == intList[2] {
-        if intList[1] < intList[3]  {
-            print("Takahashi")
-            return
-        } else if intList[1] > intList[3]  {
-            print("Aoki")
-            return
+                    let filtered = iList.filter { $0 == "-" }
+                    print(filtered, "aa白木")
+                    break
+                }
+
+                if secondIndex.isEmpty {
+                    secondIndex = [i, index]
+                    break
+                }
+            }
         }
     }
 
-    if intList[0] > intList[2] {
-        print("Aoki")
-        return
-    } else if intList[0] < intList[2] {
-        print("Takahashi")
-        return
-    }
+    let raw = abs(secondIndex[0] - firstIndex[0])
+    let line = abs(firstIndex[1] - secondIndex[1])
+    print(raw + line)
 }
 
 aaa()
@@ -33,8 +37,15 @@ func readInts() -> [Int] {
     return readLine()!.split(separator: " ").map { Int(String($0))! }
 }
 
+func readStrings() -> [String] {
+    return readLine()!.split(separator: "").map { String($0) }
+}
+
+
 /*
  input 頭のスペースに注意
-7 0 6 30
+2 3
+--o
+o--
  */
 
