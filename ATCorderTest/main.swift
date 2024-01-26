@@ -33,9 +33,8 @@ func aaa() {
 
 aaa()
 
-func readTwoInts() -> (a: Int, b: Int) {
-    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
-    return (a: ints[0], b: ints[1])
+func readInts() -> [Int] {
+    return readLine()!.split(separator: " ").map { Int(String($0))! }
 }
 
 func readStrings() -> [String] {
