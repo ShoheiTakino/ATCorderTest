@@ -1,42 +1,51 @@
 import Foundation
 
 func aaa() {
-    let list = readStrings()
-    var characterCounts: [(String, Int)] = []
+    let input = readLine()!.split(separator: " ").map { Int($0)! }
+    let n = input[0]
+    let m = input[1]
 
-    for char in list {
-        // 文字が配列内に存在するか検索
-        if let index = characterCounts.firstIndex(where: { $0.0 == char }) {
-            // 文字がすでに存在する場合、出現回数を+1
-            characterCounts[index].1 += 1
-        } else {
-            // 文字がまだ存在しない場合、新しい組を追加
-            characterCounts.append((char, 1))
+    var a = [[Int]]()
+
+    for _ in 0..<m {
+        let row = readLine()!.split(separator: " ").map { Int($0)! - 1 }
+        a.append(row)
+    }
+
+    var g = [[Bool]](repeating: [Bool](repeating: false, count: n), count: n)
+
+    for i in 0..<m {
+        for j in 0..<(n - 1) {
+            g[a[i][j]][a[i][j + 1]] = true
         }
     }
 
-    var maxCount = 0
-    for (_, count) in characterCounts {
-        maxCount = maxCount > count ? maxCount : count
-    }
+    var ans = 0
 
-    let sortedData = characterCounts.sorted { $0.0 < $1.0 }
-    for (char, count) in sortedData {
-        if maxCount == count {
-            print(char)
-            return
+    for x in 0..<n {
+        for y in 0..<x {
+            if g[x][y] || g[y][x] { continue }
+            ans += 1
         }
     }
+    print(ans)
 }
 
 aaa()
 
-func readStrings() -> [String] {
-    return readLine()!.split(separator: "").map { String($0) }
+func readTwoInts() -> (a: Int, b: Int) {
+    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
+    return (a: ints[0], b: ints[1])
+}
+
+func readInts() -> [Int] {
+    return readLine()!.split(separator: " ").map { Int(String($0))! }
 }
 
 /*
  input 頭のスペースに注意
-frequency
+4 2
+1 2 3 4
+4 3 1 2
  */
 
