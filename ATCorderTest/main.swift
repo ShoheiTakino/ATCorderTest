@@ -1,41 +1,35 @@
 import Foundation
 
+
 func aaa() {
-    let input = readLine()!.split(separator: " ").map { Int($0)! }
-    let n = input[0]
-    let m = input[1]
-
-    var a = [[Int]]()
-
-    for _ in 0..<m {
-        let row = readLine()!.split(separator: " ").map { Int($0)! - 1 }
-        a.append(row)
+    let N = readInt()
+    var w = [Int]()
+    var x = [Int]()
+    var answer = 0
+    
+    for _ in 0..<N {
+        let input = readLine()!.split(separator: " ").map { Int($0)! }
+        w.append(input[0])
+        x.append(input[1])
     }
 
-    var g = [[Bool]](repeating: [Bool](repeating: false, count: n), count: n)
-
-    for i in 0..<m {
-        for j in 0..<(n - 1) {
-            g[a[i][j]][a[i][j + 1]] = true
+    for t in 0..<24 {
+        var now = 0
+        for i in 0..<N {
+            let y = (x[i] + t) % 24
+            if 9 <= y && y < 18 {
+                now += w[i]
+            }
         }
+        answer = max(answer, now)
     }
-
-    var ans = 0
-
-    for x in 0..<n {
-        for y in 0..<x {
-            if g[x][y] || g[y][x] { continue }
-            ans += 1
-        }
-    }
-    print(ans)
+    print(answer)
 }
 
 aaa()
 
-func readTwoInts() -> (a: Int, b: Int) {
-    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
-    return (a: ints[0], b: ints[1])
+func readInt() -> Int {
+    return Int(readLine()!)!
 }
 
 func readInts() -> [Int] {
@@ -44,8 +38,9 @@ func readInts() -> [Int] {
 
 /*
  input 頭のスペースに注意
-4 2
-1 2 3 4
-4 3 1 2
+3
+5 0
+3 3
+2 18
  */
 
