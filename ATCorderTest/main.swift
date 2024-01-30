@@ -1,15 +1,27 @@
 import Foundation
 
 func aaa() {
-    let _ = readInt()
-    print(readLine()!.last!)
+    var list = readInts()
+    var answer = ""
+    var count = 0
+    while list[0] >= 0 {
+        count += 1
+        if count % 3 == 0 {
+            list[0] -= list[3]
+            answer = "T"
+        } else if count % 3 == 1 {
+            list[0] -= list[1]
+            answer = "F"
+        } else if count % 3 == 2 {
+            list[0] -= list[2]
+            answer = "M"
+        }
+    }
+
+    print(answer)
 }
 
 aaa()
-
-func readInt() -> Int {
-    return Int(readLine()!)!
-}
 
 func readInts() -> [Int] {
     return readLine()!.split(separator: " ").map { Int(String($0))! }
@@ -17,7 +29,6 @@ func readInts() -> [Int] {
 
 /*
  input 頭のスペースに注意
-5
-abcde
+25 10 11 12
  */
 
