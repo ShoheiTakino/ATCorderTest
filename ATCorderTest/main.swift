@@ -1,8 +1,10 @@
 import Foundation
 
 func aaa() {
-    let _ = readInt()
-    print(readLine()!.last!)
+    let H = readInt()
+    let a = 12800000
+    let answer =  H * (a + H)
+    print(sqrt(Double(answer)))
 }
 
 aaa()
@@ -11,12 +13,8 @@ func readInt() -> Int {
     return Int(readLine()!)!
 }
 
-func readInts() -> [Int] {
-    return readLine()!.split(separator: " ").map { Int(String($0))! }
-}
-
 /*
  input 頭のスペースに注意
-25 10 11 12
+333
  */
 
