@@ -1,10 +1,9 @@
 import Foundation
 
 func aaa() {
-    let H = readInt()
-    let a = 12800000
-    let answer =  H * (a + H)
-    print(sqrt(Double(answer)))
+    let n = readInt()
+    let power = Double(pow(Double(2), Double(n)))
+    print(power > Double(n * n) ? "Yes" : "No")
 }
 
 aaa()
@@ -15,6 +14,6 @@ func readInt() -> Int {
 
 /*
  input 頭のスペースに注意
-333
+5
  */
 
