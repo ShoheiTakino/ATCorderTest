@@ -1,8 +1,13 @@
 import Foundation
 
 func aaa() {
-    let S = readStrings()
-    print(S.last!)
+    let S = readInt()
+    let a = Double(pow(Double(2), 31))
+    if -a <= Double(S) && Double(S) < a {
+        print("Yes")
+        return
+    }
+    print("No")
 }
 
 aaa()
@@ -11,11 +16,9 @@ func readInt() -> Int {
     return Int(readLine()!)!
 }
 
-func readStrings() -> [String] {
-    return readLine()!.split(separator: ".").map { String($0) }
-}
+
 /*
  input 頭のスペースに注意
-3 4 5
+10
  */
 
