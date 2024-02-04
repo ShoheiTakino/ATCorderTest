@@ -1,9 +1,8 @@
 import Foundation
 
 func aaa() {
-    let n = readInt()
-    let power = Double(pow(Double(2), Double(n)))
-    print(power > Double(n * n) ? "Yes" : "No")
+    let S = readStrings()
+    print(S.last!)
 }
 
 aaa()
@@ -12,8 +11,11 @@ func readInt() -> Int {
     return Int(readLine()!)!
 }
 
+func readStrings() -> [String] {
+    return readLine()!.split(separator: ".").map { String($0) }
+}
 /*
  input 頭のスペースに注意
-5
+3 4 5
  */
 
