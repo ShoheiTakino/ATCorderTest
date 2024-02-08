@@ -1,22 +1,29 @@
 import Foundation
 
 func aaa() {
-    let t = readInt()
-    print(a(a(a(t) + t) + a(a(t))))
-}
-
-private func a(_ t: Int) -> Int {
-    t * t + 2 * t + 3
+    var (x, y) = readTwoInts()
+    if y <= x {
+        print(0)
+        return
+    }
+    var answer = 0
+    y = y - x
+    while 0 < y {
+        y -= 10
+        answer += 1
+    }
+    print(answer)
 }
 
 aaa()
 
-func readInt() -> Int {
-    return Int(readLine()!)!
+func readTwoInts() -> (a: Int, b: Int) {
+    let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
+    return (a: ints[0], b: ints[1])
 }
 
 /*
  input 頭のスペースに注意
-0
+80 94
  */
 
