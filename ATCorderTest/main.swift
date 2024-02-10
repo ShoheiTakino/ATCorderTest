@@ -1,25 +1,20 @@
 import Foundation
 
 func aaa() {
-    var (x, y) = readTwoInts()
-    if y <= x {
-        print(0)
-        return
+    var (A, B, D) = readThreeInts()
+    var list: [String] = []
+    while A <= B {
+        list.append(String(A))
+        A += D
     }
-    var answer = 0
-    y = y - x
-    while 0 < y {
-        y -= 10
-        answer += 1
-    }
-    print(answer)
+    print(list.joined(separator: " "))
 }
 
 aaa()
 
-func readTwoInts() -> (a: Int, b: Int) {
+func readThreeInts() -> (a: Int, b: Int, c: Int) {
     let ints = readLine()!.split(separator: " ").map { Int(String($0))! }
-    return (a: ints[0], b: ints[1])
+    return (a: ints[0], b: ints[1], c: ints[2])
 }
 
 /*
