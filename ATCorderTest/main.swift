@@ -1,18 +1,20 @@
 import Foundation
 
 func aaa() {
-    let S = readStrings()
-    print(Int(S[0])! * Int(S[2])!)
+    var N = readInt()
+    if N >= 42 { N += 1 }
+    print("ACG" + String(format: "%03d", N))
 }
 
 aaa()
 
-func readStrings() -> [String] {
-    return readLine()!.split(separator: "").map { String($0) }
+func readInt() -> Int {
+    return Int(readLine()!)!
 }
+
 
 /*
  input 頭のスペースに注意
-3x7
+42
  */
 
