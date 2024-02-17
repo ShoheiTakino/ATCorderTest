@@ -1,9 +1,13 @@
 import Foundation
 
 func aaa() {
-    var N = readInt()
-    if N >= 42 { N += 1 }
-    print("ACG" + String(format: "%03d", N))
+    let N = readInt()
+    var answer = ""
+    for i in 0..<N {
+        answer += "10"
+    }
+    answer += "1"
+    print(answer)
 }
 
 aaa()
@@ -15,6 +19,6 @@ func readInt() -> Int {
 
 /*
  input 頭のスペースに注意
-42
+4
  */
 
